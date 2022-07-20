@@ -6,15 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.pizzaapp.data.repository.Repository
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.pizzaapp.screens.pizza_pick.PickViewModel
+import com.example.pizzaapp.screens.pizza_pick.components.PickScreen
 import com.example.pizzaapp.ui.theme.PizzaAppTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.flow
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -22,12 +19,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PizzaAppTheme {
-                // A surface container using the 'background' color from the theme
+                val viewModel: PickViewModel = viewModel()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    PickScreen(viewModel)
                 }
             }
         }
@@ -35,16 +32,3 @@ class MainActivity : ComponentActivity() {
 }
 
 
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = name)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    PizzaAppTheme {
-        Greeting("Android")
-    }
-}
