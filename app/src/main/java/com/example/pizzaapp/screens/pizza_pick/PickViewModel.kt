@@ -8,12 +8,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PickViewModel @Inject constructor(
-    private val repository: Repository
+
 ): ViewModel()
 {
     var hi = "hi"
 
-    var data = flow {
-        emit(repository.getPizzaList().toString())
-    }
+    //var data = flow {
+    //    emit(repository.getPizzaList().toString())
+    //}
 }

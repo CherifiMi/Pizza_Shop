@@ -1,26 +1,21 @@
 package com.example.pizzaapp.di
 
+import com.example.pizzaapp.data.remote.PizzaApi
+import com.example.pizzaapp.data.repository.Repository
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    /*@Provides
-    @Singleton
-    fun provideNoteDatabase(app: Application): NoteDatabas{
-        return Room.databaseBuilder(
-            app,
-            NoteDatabas::class.java,
-            NoteDatabas.DATABSE_NAME
-        ).build()
-    }
 
     @Provides
     @Singleton
-    fun provideNoteRepository(db: NoteDatabas): NoteRepository{
-        return NoteRepositoryImp(db.noteDao)
+    fun provideRepository(api: PizzaApi): Repository{
+        return Repository(api)
     }
 
     @Provides
@@ -32,6 +27,20 @@ object AppModule {
             insertNote = InsertNote(repository),
             getNote = GetNote(repository)
         )
-    }*/
+    }
+
+    /*@Provides
+    @Singleton
+    fun provideNoteDatabase(app: Application): NoteDatabas{
+        return Room.databaseBuilder(
+            app,
+            NoteDatabas::class.java,
+            NoteDatabas.DATABSE_NAME
+        ).build()
+    }
+
+
+
+    */
 
 }
