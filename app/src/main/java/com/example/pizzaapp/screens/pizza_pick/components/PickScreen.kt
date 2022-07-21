@@ -1,16 +1,18 @@
 package com.example.pizzaapp.screens.pizza_pick.components
 
-import android.util.Log
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import com.example.pizzaapp.screens.pizza_pick.PickViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.pizzaapp.screens.pizza_pick.PickViewModel
+
 
 @Composable
-fun PickScreen(viewModel: PickViewModel) {
+fun PickScreen(
+    viewModel: PickViewModel = hiltViewModel()
+) {
 
-    Greeting("hillo")
-    Log.d("TESTAPI", viewModel.hi)
+    Greeting(viewModel.test)
+    //Log.d("TESTAPI", viewModel.hi)
 }
 
 @Composable

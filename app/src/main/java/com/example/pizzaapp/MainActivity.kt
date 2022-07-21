@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.pizzaapp.screens.pizza_pick.PickViewModel
 import com.example.pizzaapp.screens.pizza_pick.components.PickScreen
 import com.example.pizzaapp.ui.theme.PizzaAppTheme
@@ -19,12 +19,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PizzaAppTheme {
-                val viewModel: PickViewModel = viewModel()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    PickScreen(viewModel)
+                    PickScreen()
                 }
             }
         }
