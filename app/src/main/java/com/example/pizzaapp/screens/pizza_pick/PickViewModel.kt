@@ -4,16 +4,15 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pizzaapp.data.util.NetworkResult
-import com.example.pizzaapp.domain.use_cases.GetPizzaList
+import com.example.pizzaapp.domain.use_cases.GetPizzaListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
 class PickViewModel @Inject constructor(
-    private val getPizzaListUseCase: GetPizzaList
+    private val getPizzaListUseCase: GetPizzaListUseCase
 ) : ViewModel() {
 
     val test = "fuck you"

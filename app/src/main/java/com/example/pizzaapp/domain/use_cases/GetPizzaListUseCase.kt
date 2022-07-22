@@ -11,7 +11,7 @@ import retrofit2.Response
 import java.io.IOException
 import javax.inject.Inject
 
-class GetPizzaList @Inject constructor(
+class GetPizzaListUseCase @Inject constructor(
     private val repository: PizzaRepository
 ){
     operator fun invoke(): Flow<NetworkResult<PizzaList>> = flow {
